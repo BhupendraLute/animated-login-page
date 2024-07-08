@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-image: url(./assets/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container #girl {
+    width: 300px;
+    position: absolute;
+    top: 25%;
+    left: -101%;
+    animation: ride 20s linear infinite;
+    overflow: hidden;
+}
+
+.container div img {
+    width: 100%;
+}
+
+.container .tree {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+}
+
+.container .tree img {
+    width: 100%;
+    height: 100%;
+}
+
+.container .leaf {
+    position: absolute;
+    top: var(--start-pos);
+    width: 60px;
+    z-index: 99;
+    animation: falling-leaf 20s linear infinite, swing-leaf 5s linear infinite;
+    overflow: hidden;
+    animation-delay: var(--delay);
+}
+
+.container .leaf#leaf1 {
+    left: 10vw;
+    --start-pos: -10vh;
+    --end-pos: 170vh;
+    --delay: 1s
+}
+
+.container .leaf#leaf2 {
+    left: 25vw;
+    --start-pos: -30vh;
+    --end-pos: 120vh;
+    --delay: 2s
+}
+
+.container .leaf#leaf3 {
+    left: 40vw;
+    --start-pos: -50vh;
+    --end-pos: 110vh;
+    --delay: 3s
+}
+
+.container .leaf#leaf4 {
+    left: 80vw;
+    --start-pos: -70vh;
+    --end-pos: 180vh;
+    --delay: 4s
+}
+
+.container .leaf#leaf5 {
+    right: 88vw;
+    --start-pos: -150vh;
+    --end-pos: 150vh;
+    --delay: 4s
+}
+
+.container .leaf#leaf6 {
+    right: 60vw;
+    --start-pos: -130vh;
+    --end-pos: 140vh;
+    --delay: 3s
+}
+
+.container .leaf#leaf7 {
+    right: 40vw;
+    --start-pos: -110vh;
+    --end-pos: 160vh;
+    --delay: 2s
+}
+
+.container .leaf#leaf8 {
+    right: 10vw;
+    --start-pos: -90vh;
+    --end-pos: 130vh;
+    --delay: 3s
+}
+
+
+
+
+/* Animations */
+@keyframes ride {
+    0% {
+        left: -101%;
+        transform: scaleX(1);
+    }
+
+    49% {
+        left: 110vw;
+        transform: scaleX(1);
+    }
+
+    50% {
+        transform: scaleX(-1);
+    }
+
+    51% {
+        left: 110vw;
+    }
+
+    100% {
+        transform: scaleX(-1);
+    }
+}
+
+@keyframes swing-leaf {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(20deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-20deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes falling-leaf {
+    0% {
+        top: var(--start-pos)
+    }
+
+    100% {
+        top: var(--end-pos)
+    }
+}
+
+/* Decoration End */
+
+/* Login Form Start */
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 480px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container h1 {
+    font-weight: 800;
+    font-size: xx-large;
+    color: #821e1e;
+}
+
+.form-container form {
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-container form input {
+    width: 100%;
+    font-size: larger;
+    padding: 10px 15px;
+    outline: none;
+    border: none;
+    background: #fff;
+    color: #821e1e;
+    border-radius: 6px;
+}
+
+.form-container form input::placeholder {
+    color: #821e1e;
+}
+
+.form-container form input[type=submit] {
+    background: #821e1e;
+    color: #fff;
+}
+
+.form-container form input[type=submit]:hover {
+    background: #931e1e;
+    cursor: pointer;
+}
+
+.form-container form div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 1rem;
+    color: #821e1e;
+}
+
+.form-container form div p {
+    cursor: pointer;
+}
+
+.form-container form div a {
+    color: #821e1e;
+}
+/* Login form End */
+
+/* Media queries */
+@media screen and (max-width: 500px) {
+    .container .leaf{
+        width: 40px;
+    }
+
+    .form-container {
+        width: 95%;
+        padding: 1rem;
+    }
+}
